@@ -3,238 +3,397 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedro Bonomo 25 anos</title>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background-color: #336e8c; text-align: center; padding: 20px; color: #2f5d73; }
-    .container { background: rgba(255, 255, 255, 0.85); border-radius: 15px; padding: 30px; max-width: 700px; margin: 20px auto; }
-    button { margin-top: 20px; padding: 12px 25px; border: none; border-radius: 10px; background: #2f5d73; color: white; cursor: pointer; font-weight: bold; font-size: 15px; }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
-    .upload-box { display: block; width: 80%; margin: 20px auto; padding: 12px; border-radius: 10px; border: 2px dashed #2f5d73; background: white; cursor: pointer; transition: background 0.2s; }
-    .upload-box:hover { background: #eaf4fb; }
-    .upload-box input { display: none; }
+  <title>Vitória 25 anos - Made in Brasil 🇧🇷</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="icon.png">
 
-    /* Grid de pré-visualização */
-    #preview-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 15px;
-    }
-    .preview-item {
-      position: relative;
-      width: 90px;
-      height: 90px;
-    }
-    .preview-item img {
-      width: 90px;
-      height: 90px;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 2px solid #2f5d73;
-    }
-    .preview-item .remove-btn {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      background: #cc3333;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      font-size: 12px;
-      cursor: pointer;
-      line-height: 20px;
-      padding: 0;
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7e9d7; /* tom areia/palha de fundo */
+      background-image: url('fundo.jpg'); /* coloque a imagem do convite da Vitória aqui */
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      background-attachment: fixed;
+      text-align: center;
+      padding: 20px;
+      color: #1b3d2f;
       margin: 0;
     }
-    .preview-item .status-icon {
-      position: absolute;
-      bottom: 4px;
-      left: 4px;
+
+    .container {
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      padding: 25px 20px;
+      max-width: 550px;
+      margin: 20px auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      border: 2px solid #006b3f;
+    }
+
+    .titulo {
+      font-size: 32px;
+      font-weight: 800;
+      color: #006b3f;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .subtitulo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #d9381e;
+      margin-top: 0;
+    }
+
+    #contador {
+      font-size: 20px;
+      font-weight: bold;
+      color: #006b3f;
+      background: #fff3d1;
+      padding: 10px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 15px 0;
+      border: 1px dashed #d9a000;
+    }
+
+    p {
       font-size: 16px;
+      line-height: 1.5;
+      color: #333;
     }
 
-    /* Barra de progresso */
-    #progress-bar-wrapper {
-      display: none;
-      margin: 15px auto;
+    input[type="text"] {
       width: 80%;
-      background: #cde8f5;
+      padding: 12px 15px;
+      margin-top: 15px;
       border-radius: 10px;
-      height: 14px;
-      overflow: hidden;
-    }
-    #progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #2f5d73;
-      transition: width 0.3s;
-      border-radius: 10px;
+      border: 2px solid #006b3f;
+      font-size: 16px;
+      outline: none;
     }
 
-    #statusFoto { margin-top: 10px; font-weight: bold; min-height: 24px; }
-    #foto-count { font-size: 13px; color: #555; margin-top: 5px; }
+    input[type="text"]:focus {
+      border-color: #d9381e;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: #006b3f;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #004d2d;
+    }
+
+    .btn-confirmar {
+      background: #d9381e !important;
+      width: 85%;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .btn-confirmar:hover {
+      background: #b02a15 !important;
+    }
+
+    .lista {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .item {
+      background: #ffffff;
+      padding: 12px 15px;
+      border-radius: 10px;
+      width: 90%;
+      margin: 8px auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 1px solid #ddd;
+      transition: 0.2s;
+    }
+
+    .item input {
+      transform: scale(1.3);
+      accent-color: #006b3f;
+    }
+
+    .item.confirmado {
+      background: #e8f5e9;
+      border: 1px solid #2e7d32;
+      font-weight: bold;
+    }
+
+    .item.confirmado span::after {
+      content: " ✓";
+      color: #2e7d32;
+    }
+
+    iframe {
+      border-radius: 15px;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
+
   <div class="container">
-    <h1>Pedro Bonomo - 25 anos 🎉</h1>
-    <p>Obrigado por compartilhar esse momento comigo!</p>
-    <div id="fotos">
-      <h2>Envie suas fotos 📸</h2>
+    <h1 class="titulo">VITÓRIA 25</h1>
+    <div class="subtitulo">🇧🇷 MADE IN BRASIL 💛</div>
 
-      <label class="upload-box">
-        <span id="textoUpload">Escolher fotos 📸</span>
-        <input type="file" id="fotoInput" accept="image/*" multiple>
-      </label>
-      <div id="foto-count"></div>
+    <div id="contador">Carregando contagem...</div>
 
-      <!-- Grid de pré-visualização -->
-      <div id="preview-grid"></div>
+    <p>
+      Muito samba, cerveja gelada e brasilidade!<br>
+      Você é nosso convidado especial para celebrar os 25 anos da Vitória.
+    </p>
 
-      <!-- Barra de progresso -->
-      <div id="progress-bar-wrapper">
-        <div id="progress-bar"></div>
-      </div>
+    <div id="rsvp">
+      <h3 style="color: #006b3f; margin-bottom: 5px;">Confirme sua presença 🍻</h3>
+      <input type="text" id="nome" placeholder="Digite seu nome">
+      <br>
+      <button onclick="buscar()">Buscar Nome</button>
 
-      <button id="btnEnviar" onclick="enviarFotos()">Enviar para o Drive</button>
-      <p id="statusFoto"></p>
+      <div class="lista" id="resultado"></div>
+
+      <button class="btn-confirmar" onclick="confirmar()">Confirmar Presença 🎉</button>
     </div>
   </div>
 
+  <div class="container">
+    <h3 style="color: #006b3f; margin-top: 0;">Local da Festa 📍</h3>
+    <p style="font-size: 14px; margin-bottom: 10px;">Confira no mapa abaixo como chegar:</p>
+    
+    <!-- Substitua o src pelo link de iframe do Google Maps do local da festa da Vitória -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.674452553259!2d-43.286794199999996!3d-22.777459699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997b145b834baf%3A0x64ff31b4d31fdfe0!2zRXNwYcOnbyBNYW5zw6Nv!5e0!3m2!1spt-BR!2sbr!4v1776272783970!5m2!1spt-BR!2sbr"
+      width="100%"
+      height="250"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+
   <script>
-    // Armazena os arquivos selecionados (permite acumular seleções)
-    let arquivosSelecionados = [];
+    // 🗓️ Data da festa da Vitória
+    const dataFesta = new Date("2026-08-03T00:00:00");
 
-    const input = document.getElementById("fotoInput");
-    const grid = document.getElementById("preview-grid");
-    const contadorEl = document.getElementById("foto-count");
+    // 🔗 API do SheetDB (substitua pela sua URL quando estiver pronta)
+    const API_URL = "https://sheetdb.io/api/v1/SUA_API_AQUI";
+    const MODO_LOCAL = API_URL.includes("SUA_API_AQUI");
 
-    input.addEventListener("change", function () {
-      const novos = Array.from(this.files);
-      novos.forEach(file => {
-        // Evita duplicatas pelo nome+tamanho
-        const jaExiste = arquivosSelecionados.some(
-          f => f.name === file.name && f.size === file.size
-        );
-        if (!jaExiste) arquivosSelecionados.push(file);
-      });
-      this.value = ""; // limpa o input para permitir re-seleção
-      renderizarPreview();
-      atualizarContador();
-    });
+    let grupoAtual = [];
+    let dadosBase = [];
 
-    function renderizarPreview() {
-      grid.innerHTML = "";
-      arquivosSelecionados.forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const item = document.createElement("div");
-          item.className = "preview-item";
-          item.id = `preview-${index}`;
-          item.innerHTML = `
-            <img src="${e.target.result}" alt="${file.name}">
-            <button class="remove-btn" onclick="removerFoto(${index})">✕</button>
-            <span class="status-icon" id="icon-${index}"></span>
-          `;
-          grid.appendChild(item);
-        };
-        reader.readAsDataURL(file);
-      });
+    function getDadosFallback() {
+      return [
+        { nome: "Vitória", familia_id: 1, confirmado: "sim" },
+        { nome: "Família Vitória", familia_id: 1, confirmado: "nao" }
+      ];
     }
 
-    function removerFoto(index) {
-      arquivosSelecionados.splice(index, 1);
-      renderizarPreview();
-      atualizarContador();
+    function salvarLocal(dados) {
+      localStorage.setItem("vitoria25_rsvp", JSON.stringify(dados));
     }
 
+    function carregarDadosLocal() {
+      const salvo = localStorage.getItem("vitoria25_rsvp");
+      if (!salvo) {
+        const fallback = getDadosFallback();
+        salvarLocal(fallback);
+        return fallback;
+      }
+
+      try {
+        return JSON.parse(salvo);
+      } catch {
+        const fallback = getDadosFallback();
+        salvarLocal(fallback);
+        return fallback;
+      }
+    }
+
+    async function buscarDados() {
+      if (MODO_LOCAL) {
+        const dados = carregarDadosLocal();
+        dadosBase = dados;
+        return dados;
+      }
+
+      const res = await fetch(API_URL);
+      if (!res.ok) {
+        throw new Error("API indisponível");
+      }
+
+      const dados = await res.json();
+      dadosBase = Array.isArray(dados) ? dados : [];
+      salvarLocal(dadosBase);
+      return dadosBase;
+    }
+
+    async function salvarDadosRemotos(atualizacoes) {
+      for (const pessoa of atualizacoes) {
+        await fetch(API_URL + "/nome/" + encodeURIComponent(pessoa.nome), {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            data: {
+              confirmado: pessoa.confirmado
+            }
+          })
+        });
+      }
+    }
+
+    // Contador Regressivo
     function atualizarContador() {
-      const n = arquivosSelecionados.length;
-      contadorEl.innerText = n > 0 ? `${n} foto${n > 1 ? "s" : ""} selecionada${n > 1 ? "s" : ""}` : "";
-      document.getElementById("textoUpload").innerText = n > 0 ? "Adicionar mais fotos 📸" : "Escolher fotos 📸";
-    }
+      const agora = new Date();
+      const diferenca = dataFesta - agora;
 
-    async function enviarFotos() {
-      if (arquivosSelecionados.length === 0) {
-        alert("Escolha pelo menos uma foto!");
+      if (diferenca <= 0) {
+        document.getElementById("contador").innerHTML = "🎉 É HOJE! BORA CELEBRAR!";
         return;
       }
 
-      const status = document.getElementById("statusFoto");
-      const btn = document.getElementById("btnEnviar");
-      const progressWrapper = document.getElementById("progress-bar-wrapper");
-      const progressBar = document.getElementById("progress-bar");
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
 
-      btn.disabled = true;
-      progressWrapper.style.display = "block";
-      progressBar.style.width = "0%";
-      status.innerText = "Enviando fotos... aguarde.";
+      document.getElementById("contador").innerHTML =
+        `Faltam ${dias} dias • ${horas}h ${minutos}min 🥳`;
+    }
+    setInterval(atualizarContador, 1000);
 
-      let enviadas = 0;
-      let erros = 0;
-      const total = arquivosSelecionados.length;
+    // Buscar Convidados
+    async function buscar() {
+      const nomeBusca = document.getElementById("nome").value.toLowerCase().trim();
 
-      for (let i = 0; i < total; i++) {
-        const file = arquivosSelecionados[i];
-        const iconEl = document.getElementById(`icon-${i}`);
+      if (!nomeBusca) {
+        alert("Por favor, digite seu nome!");
+        return;
+      }
 
-        try {
-          const base64Data = await lerComoBase64(file);
+      document.getElementById("resultado").innerHTML = "<p style='text-align:center;'>Procurando seu nome... 🇧🇷</p>";
 
-          const response = await fetch(
-            "https://script.google.com/macros/s/AKfycbweHAExxA_n99ORjOqe1srZ3tZQahrvenq1mfrOib_XFgrSR7mkJ3TsR-k__oC4-z-r/exec",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                data: base64Data,
-                mimetype: file.type,
-                filename: file.name
-              })
-            }
-          );
+      try {
+        const dados = await buscarDados();
+        const pessoa = dados.find(p =>
+          String(p.nome || "").toLowerCase().includes(nomeBusca)
+        );
 
-          if (response.ok) {
-            enviadas++;
-            if (iconEl) iconEl.innerText = "✅";
-          } else {
-            erros++;
-            if (iconEl) iconEl.innerText = "❌";
-          }
-        } catch (error) {
-          erros++;
-          if (iconEl) iconEl.innerText = "❌";
-          console.error(`Erro ao enviar ${file.name}:`, error);
+        if (!pessoa) {
+          document.getElementById("resultado").innerHTML = "<p style='text-align:center; color: #d9381e;'>Nome não encontrado na lista 😢</p>";
+          grupoAtual = [];
+          return;
         }
 
-        // Atualiza barra de progresso
-        const pct = Math.round(((i + 1) / total) * 100);
-        progressBar.style.width = pct + "%";
-        status.innerText = `Enviando ${i + 1} de ${total}...`;
-      }
+        const familia = pessoa.familia_id;
+        grupoAtual = dados.filter(p => p.familia_id === familia);
 
-      btn.disabled = false;
+        let html = "<h4 style='text-align:center; color:#006b3f; margin-bottom:10px;'>Selecione quem vai comparecer:</h4>";
 
-      if (erros === 0) {
-        status.innerText = `🎉 ${enviadas} foto${enviadas > 1 ? "s" : ""} enviada${enviadas > 1 ? "s" : ""} com sucesso!`;
-        arquivosSelecionados = [];
-        atualizarContador();
-        setTimeout(() => { grid.innerHTML = ""; progressWrapper.style.display = "none"; }, 3000);
-      } else {
-        status.innerText = `✅ ${enviadas} enviada${enviadas !== 1 ? "s" : ""} | ❌ ${erros} com erro. Tente reenviar as marcadas.`;
+        if (MODO_LOCAL) {
+          html += "<p style='font-size:13px; text-align:center; color:#d9381e; margin-bottom:12px;'>Modo de demonstração ativado até a planilha real ser conectada.</p>";
+        }
+
+        grupoAtual.forEach((p, i) => {
+          const checked = p.confirmado === "sim" ? "checked" : "";
+          const classe = p.confirmado === "sim" ? "confirmado" : "";
+
+          html += `
+            <label class="item ${classe}">
+              <input type="checkbox" id="p${i}" ${checked}>
+              <span>${p.nome}</span>
+            </label>
+          `;
+        });
+
+        const confirmados = grupoAtual
+          .filter(p => p.confirmado === "sim")
+          .map(p => p.nome);
+
+        if (confirmados.length > 0) {
+          html += `
+            <p style="margin-top:15px; font-size:14px; color:#2e7d32; font-weight:bold; text-align:center;">
+              ✅ Já confirmados: ${confirmados.join(", ")}
+            </p>
+          `;
+        }
+
+        document.getElementById("resultado").innerHTML = html;
+
+      } catch (erro) {
+        document.getElementById("resultado").innerHTML = "<p style='text-align:center; color: red;'>Erro ao conectar com a planilha. Verifique a URL da API.</p>";
       }
     }
 
-    function lerComoBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result.split(",")[1]);
-        reader.onerror = () => reject(new Error("Falha ao ler arquivo"));
-        reader.readAsDataURL(file);
+    // Confirmar Presença
+    async function confirmar() {
+      if (grupoAtual.length === 0) {
+        alert("⚠️ Busque seu nome primeiro antes de confirmar!");
+        return;
+      }
+
+      let atualizacoes = [];
+      let alguemSelecionado = false;
+
+      grupoAtual.forEach((p, i) => {
+        const marcado = document.getElementById(`p${i}`).checked;
+        if (marcado) alguemSelecionado = true;
+
+        atualizacoes.push({
+          nome: p.nome,
+          confirmado: marcado ? "sim" : "nao"
+        });
       });
+
+      if (!alguemSelecionado) {
+        alert("⚠️ Marque pelo menos uma pessoa do grupo!");
+        return;
+      }
+
+      document.getElementById("resultado").innerHTML = "<p style='text-align:center;'>Salvando sua resposta... 🇧🇷</p>";
+
+      try {
+        if (MODO_LOCAL) {
+          const atualizado = dadosBase.map(p => {
+            const item = atualizacoes.find(a => a.nome === p.nome);
+            return item ? { ...p, confirmado: item.confirmado } : p;
+          });
+          dadosBase = atualizado;
+          salvarLocal(atualizado);
+        } else {
+          await salvarDadosRemotos(atualizacoes);
+        }
+
+        alert("Presença enviada com sucesso! Te esperamos lá! 🎉");
+        buscar();
+      } catch (erro) {
+        document.getElementById("resultado").innerHTML = "<p style='text-align:center; color: red;'>Não foi possível salvar a resposta. Tente novamente.</p>";
+      }
     }
+
+    atualizarContador();
   </script>
+
 </body>
 </html>

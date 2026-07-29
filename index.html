@@ -8,21 +8,29 @@
 
   <style>
     body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f7e9d7;
-  
-  /* Caminho da imagem de fundo */
-  background-image: url('fundo1.png'); 
-  
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  background-attachment: fixed;
-  text-align: center;
-  padding: 20px;
-  color: #1b3d2f;
-  margin: 0;
-}
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7e9d7; 
+      
+      /* 1. Nome exato da sua nova imagem */
+      background-image: url('fundo1.png'); 
+      
+      /* 2. Não deixa a imagem se repetir */
+      background-repeat: no-repeat; 
+      
+      /* 3. Centraliza a imagem na tela */
+      background-position: center center; 
+      
+      /* 4. Faz a imagem cobrir a tela inteira */
+      background-size: cover; 
+      
+      /* 5. O SEGREDO: Trava a imagem no fundo (estática) */
+      background-attachment: fixed; 
+      
+      text-align: center;
+      padding: 20px;
+      color: #1b3d2f;
+      margin: 0;
+    }
 
     .container {
       background: rgba(255, 255, 255, 0.90);
